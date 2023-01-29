@@ -19,4 +19,12 @@ const settings = [
   },
 ];
 
-const getSettings = (id) => {};
+const getSetting = (id) => {
+  return settings.filter((item) => item.id === id);
+};
+
+const getUri = () => {};
+
+export default {
+  getSetting,
+};

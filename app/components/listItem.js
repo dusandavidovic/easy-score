@@ -1,15 +1,15 @@
-import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
 const ListItem = ({ id, name, description, onPress }) => {
   return (
-    <TouchableHighlight onPress={() => onPress(id)}>
+    <Pressable onPress={() => onPress(name)}>
       <View style={styles.container}>
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.text}>{description}</Text>
         <Text style={styles.text}>{id}</Text>
       </View>
-    </TouchableHighlight>
+    </Pressable>
   );
 };
 

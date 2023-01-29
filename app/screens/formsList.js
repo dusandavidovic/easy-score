@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { Button, FlatList, StyleSheet, View } from "react-native";
 
 import ListItem from "../components/listItem";
 import Screen from "../components/Screen";
@@ -22,29 +22,18 @@ const FORMS = [
   },
 ];
 
-// const listItem = (item) => {
-//   const { id, name, description, isPublic } = item; //destructuring
-
-//   <View style={styles.item}>
-//     <Text style={styles.title}>{name}</Text>
-//     <Text style={styles.text}>{description}</Text>
-//     <Text style={styles.text}>{{ isPublic }}</Text>
-//   </View>;
-// };
-// const renderComp = ({ item, index }) => {
-//   //console.log(item, index);
-//   return (
-//     <ListItem id={item.hash} name={item.name} description={item.description} />
-//   );
-// };
-
 const renderSeparator = () => <View style={styles.separator} />;
 
-const handlePress = (arg) => {
-  console.log("handlePresss", arg);
+const handlePress = () => {
+  console.log("handlePresss");
 };
 
-export default function FormsList() {
+const handleButtonPress = (arg) => {
+  console.log("handleButtonPresss");
+};
+
+export default function FormsList({ route }) {
+  console.log(route.params.source);
   return (
     <Screen>
       <View style={styles.screen}>
@@ -62,6 +51,7 @@ export default function FormsList() {
           ItemSeparatorComponent={renderSeparator}
         />
       </View>
+      <Button title="Save" onPress={handleButtonPress} />
     </Screen>
   );
 }
