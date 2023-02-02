@@ -21,10 +21,10 @@ export default function WelcomeScreen({ navigation }) {
   };
 
   const handlePress = (navigation, source) => {
-    console.log("Button pressed", navigation);
-    console.log("Source =", source);
-    console.log(settings.getSetting(source));
-    navigation.navigate(routes.FORMS_LIST, { source: source });
+    navigation.navigate(routes.FORMS_LIST, {
+      source: source,
+      settings: settings.getSetting(source),
+    });
   };
 
   return (
@@ -32,6 +32,7 @@ export default function WelcomeScreen({ navigation }) {
       <View style={styles.container}>
         <Text>Please select data source</Text>
         <Picker
+          selectedValue={source}
           onValueChange={handleValueChange}
           style={styles.picker}
           itemStyle={styles.itemStyle}

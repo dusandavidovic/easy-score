@@ -1,6 +1,6 @@
 import { FlatList, StyleSheet, StatusBar, Text, View } from "react-native";
 import React from "react";
-import { SafeAreaView } from "react-native-web";
+import { SafeAreaView } from "react-native";
 import ListItem from "../components/listItem";
 
 const DATA = [
