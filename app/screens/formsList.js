@@ -22,18 +22,19 @@ const FORMS = [
   },
 ];
 
-const renderSeparator = () => <View style={styles.separator} />;
-
-const handlePress = () => {
-  console.log("handlePresss");
-};
-
-const handleButtonPress = (arg) => {
-  console.log("handleButtonPresss");
-};
-
 export default function FormsList({ route }) {
-  console.log(route.params.source);
+  console.log("Route = ", route.params);
+
+  const renderSeparator = () => <View style={styles.separator} />;
+
+  const handlePress = (item) => {
+    console.log("handlePresss", item);
+  };
+
+  const handleButtonPress = () => {
+    console.log("handleButtonPresss");
+  };
+
   return (
     <Screen>
       <View style={styles.screen}>
@@ -45,13 +46,13 @@ export default function FormsList({ route }) {
               id={item.hash}
               name={item.name}
               description={item.description}
-              onPress={handlePress}
+              onPress={() => handlePress(item)}
             />
           )}
           ItemSeparatorComponent={renderSeparator}
         />
       </View>
-      <Button title="Save" onPress={handleButtonPress} />
+      <Button title="Continue" onPress={handleButtonPress} />
     </Screen>
   );
 }
