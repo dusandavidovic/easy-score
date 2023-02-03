@@ -32,7 +32,7 @@ const getFormFields = async (sourceId, formId) => {
 
 const getForms = async (sourceId) => {
   try {
-    const response = await client.get(settings.getUri(sourceId, "/entries"), {
+    const response = await client.get(settings.getUri(sourceId), {
       auth: settings.getAuth(),
     });
     // do something?

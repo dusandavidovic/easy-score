@@ -2,7 +2,7 @@
 
 // NOTE: this setings is ONLY valid for Wufoo Forms!!!
 const uriFormsBase = "https://{{subdomain}}.wufoo.com/api/v3/forms";
-const uriFormsOther = "/{{formid}}{{endPoint}}.{{format}}";
+const uriFormsOther = "{{formid}}{{endPoint}}.{{format}}";
 
 const settings = [
   {
@@ -24,12 +24,16 @@ const getSetting = (id) => {
 };
 
 const getUri = (id, endPoint, formId) => {
-  const { subdomain, format } = getSetting(id);
+  const { subdomain, format } = getSetting(id)[0];
+  const setting = getSetting(id);
 
   let localBase = uriFormsBase.replace("{{subdomain}}", subdomain);
-  let localOther = uriFormsOther.replace("{{formid}}", formId ? formId : "");
-  localOther = localOther.replace("{{endPoint}}", endPoint);
-  localOther = localOther.replace("{{format}}", format);
+  let localOther = uriFormsOther.replace(
+    "{{formid}}",
+    formId ? `/${formId}` : ""
+  );
+  localOther = localOther.replace("{{endPoint}}", endPoint ? endPoint : "");
+  localOther = localOther.replace("{{format}}", format ? format : "json");
   return `${localBase}${localOther}`;
 };
 
