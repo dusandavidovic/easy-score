@@ -6,13 +6,13 @@ const uriFormsOther = "/{{formid}}{{endPoint}}.{{format}}";
 
 const settings = [
   {
-    id: "scorer",
+    id: "david",
     accessId: "Y3VO-26SD-XJBC-RBO4",
     subdomain: "bhycadmin",
     format: "json",
   },
   {
-    id: "bhyc.rcsail",
+    id: "james",
     subdomain: "bhyctest",
     accessId: "AXLK-1Q4V-GMTC-UETL",
     format: "json",

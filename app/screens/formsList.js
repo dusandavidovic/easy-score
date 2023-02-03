@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, FlatList, StyleSheet, View } from "react-native";
 
 import ListItem from "../components/listItem";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
+import useApi from "../hooks/useApi";
+import formApi from "../httpApi/service";
 
 const FORMS = [
   {
@@ -23,7 +25,14 @@ const FORMS = [
 ];
 
 export default function FormsList({ route }) {
-  console.log("Route = ", route.params);
+  //console.log("Route = ", route.params);
+  const getFormApi = useApi(formApi.getForms(route.params.source));
+  useEffect(() => {
+    getFormApi.request();
+  }, []);
+
+  const { data, error } = getFormApi;
+  console.log("FormList", data, error);
 
   const renderSeparator = () => <View style={styles.separator} />;
 

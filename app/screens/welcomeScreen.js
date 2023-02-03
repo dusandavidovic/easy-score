@@ -3,12 +3,11 @@ import { Button, Platform, StyleSheet, Text, View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
 import Screen from "../components/Screen";
-import settings from "../config/settings";
 import routes from "../navigation/routes";
 
 const ITEMS = [
-  { label: "Wufoo bhyc.rcsail", value: "bhyc.rcsail" },
-  { label: "Wufoo Scorer", value: "scorer" },
+  { label: "James", value: "james" },
+  { label: "David", value: "david" },
 ];
 
 export default function WelcomeScreen({ navigation }) {
@@ -23,7 +22,6 @@ export default function WelcomeScreen({ navigation }) {
   const handlePress = (navigation, source) => {
     navigation.navigate(routes.FORMS_LIST, {
       source: source,
-      settings: settings.getSetting(source),
     });
   };
 
