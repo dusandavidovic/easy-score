@@ -6,7 +6,7 @@ const getFormEntries = async (sourceId, formId) => {
     const response = await client.get(
       settings.getUri(sourceId, "/entries", formId),
       {
-        auth: settings.getAuth(),
+        auth: settings.getAuth(sourceId),
       }
     );
     // do something?
@@ -20,7 +20,7 @@ const getFormFields = async (sourceId, formId) => {
     const response = await client.get(
       settings.getUri(sourceId, "/fields", formId),
       {
-        auth: settings.getAuth(),
+        auth: settings.getAuth(sourceId),
       }
     );
     // do something?
@@ -30,10 +30,10 @@ const getFormFields = async (sourceId, formId) => {
   }
 };
 
-const getForms = async (sourceId) => {
+const getForms = (sourceId) => {
   try {
-    const response = await client.get(settings.getUri(sourceId), {
-      auth: settings.getAuth(),
+    const response = client.get(settings.getUri(sourceId), {
+      auth: settings.getAuth(sourceId),
     });
     // do something?
     return response;
