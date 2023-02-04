@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Button, FlatList, StyleSheet, View } from "react-native";
 
 import ListItem from "../components/listItem";
@@ -25,14 +26,33 @@ const FORMS = [
 ];
 
 export default function FormsList({ route }) {
-  //console.log("Route = ", route.params);
   const getFormApi = useApi(formApi.getForms(route.params.source));
+  // const [forms1, setForms1] = useState([]);
+  // const getData = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       "https://bhycadmin.wufoo.com/api/v3/forms.json",
+  //       {
+  //         auth: {
+  //           username: "Y3VO-26SD-XJBC-RBO4",
+  //           password: "anyPass",
+  //         },
+  //       }
+  //     );
+  //     console.log(response);
+  //   } catch (error) {
+  //     console.log("FormsList.getData", error);
+  //   }
+  // };
+
   useEffect(() => {
+    //const response = getData();
+    //setForms1(response.data);
     getFormApi.request();
   }, []);
 
-  const { data, error } = getFormApi;
-  console.log("FormList", data, error);
+  // const { data, error } = getFormApi;
+  // console.log("FormList", data, error);
 
   const renderSeparator = () => <View style={styles.separator} />;
 
@@ -42,6 +62,7 @@ export default function FormsList({ route }) {
 
   const handleButtonPress = () => {
     console.log("handleButtonPresss");
+    console.log(getFormApi.data);
   };
 
   return (

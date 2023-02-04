@@ -1,7 +1,5 @@
-//import { Constants } from "expo-constants";
-
 // NOTE: this setings is ONLY valid for Wufoo Forms!!!
-const uriFormsBase = "https://{{subdomain}}.wufoo.com/api/v3/forms";
+const uriFormsBase = "http://{{subdomain}}.wufoo.com/api/v3/forms";
 const uriFormsOther = "{{formid}}{{endPoint}}.{{format}}";
 
 const settings = [
@@ -20,12 +18,11 @@ const settings = [
 ];
 
 const getSetting = (id) => {
-  return settings.filter((item) => item.id === id);
+  return settings.filter((item) => item.id === id)[0];
 };
 
 const getUri = (id, endPoint, formId) => {
-  const { subdomain, format } = getSetting(id)[0];
-  const setting = getSetting(id);
+  const { subdomain, format } = getSetting(id);
 
   let localBase = uriFormsBase.replace("{{subdomain}}", subdomain);
   let localOther = uriFormsOther.replace(
@@ -34,7 +31,9 @@ const getUri = (id, endPoint, formId) => {
   );
   localOther = localOther.replace("{{endPoint}}", endPoint ? endPoint : "");
   localOther = localOther.replace("{{format}}", format ? format : "json");
-  return `${localBase}${localOther}`;
+  const uri = `${localBase}${localOther}`;
+  return uri;
+  //return `${localBase}${localOther}`;
 };
 
 const getAuth = (id) => {
