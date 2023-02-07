@@ -1,11 +1,29 @@
 import settings from "../config/settings";
-import apiClient from "./newClient";
+import client from "./client";
 
-const getForms = (sourceId) => {
-  apiClient.setBaseURL(settings.getUri(sourceId));
-  apiClient.setHeaders({ auth: settings.getAuth(sourceId) });
-  apiClient.get();
+const getForms = async (sourceId) => {
+  try {
+    const response = await client.get(settings.getUri(sourceId), {
+      auth: settings.getAuth(sourceId),
+    });
+    // do something?
+    return response;
+  } catch (error) {
+    console.log("getFormEntries", error);
+  }
 };
+
+// import apiClient from "./newClient";
+// const getForms = (sourceId) => {
+//   const uri = settings.getUri(sourceId);
+//   const auth = settings.getAuthEncoded(sourceId);
+//   console.log(uri);
+//   console.log(auth);
+//   //apiClient.setHeaders({ auth: settings.getAuth(sourceId) });
+//   apiClient.setBaseURL(uri);
+//   apiClient.setHeader({ Authorization: auth });
+//   apiClient.get();
+// };
 
 // const getFormEntries = async (sourceId, formId) => {
 //   try {
@@ -29,18 +47,6 @@ const getForms = (sourceId) => {
 //         auth: settings.getAuth(),
 //       }
 //     );
-//     // do something?
-//     return response;
-//   } catch (error) {
-//     console.log("getFormEntries", error);
-//   }
-// };
-
-// const getForms = async (sourceId) => {
-//   try {
-//     const response = await client.get(settings.getUri(sourceId), {
-//       auth: settings.getAuth(),
-//     });
 //     // do something?
 //     return response;
 //   } catch (error) {
