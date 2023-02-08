@@ -8,7 +8,7 @@ import colors from "../config/colors";
 import useApi from "../hooks/useApi";
 import formApi from "../httpApi/service";
 
-const FORMS = [
+const FAKEFORMS = [
   {
     name: "Test01",
     description: "My First Form",
@@ -26,33 +26,17 @@ const FORMS = [
 ];
 
 export default function FormsList({ route }) {
+  const [forms, setForms] = useState([]);
+
   const getFormApi = useApi(formApi.getForms(route.params.source));
-  // const [forms1, setForms1] = useState([]);
-  // const getData = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       "https://bhycadmin.wufoo.com/api/v3/forms.json",
-  //       {
-  //         auth: {
-  //           username: "Y3VO-26SD-XJBC-RBO4",
-  //           password: "anyPass",
-  //         },
-  //       }
-  //     );
-  //     console.log(response);
-  //   } catch (error) {
-  //     console.log("FormsList.getData", error);
-  //   }
-  // };
 
   useEffect(() => {
-    //const response = getData();
-    //setForms1(response.data);
     getFormApi.request();
+    setForms(getFormApi.data.Forms);
   }, []);
 
-  // const { data, error } = getFormApi;
-  // console.log("FormList", data, error);
+  const { data, error } = getFormApi;
+  console.log("FormList", data, error);
 
   const renderSeparator = () => <View style={styles.separator} />;
 
@@ -69,7 +53,7 @@ export default function FormsList({ route }) {
     <Screen>
       <View style={styles.screen}>
         <FlatList
-          data={FORMS}
+          data={FAKEFORMS}
           keyExtractor={(form) => form.hash}
           renderItem={({ item, index }) => (
             <ListItem

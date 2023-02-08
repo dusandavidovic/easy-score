@@ -1,6 +1,6 @@
 import { create } from "apisauce";
 
-const apiClient = create();
+const apiClient = create({ baseULR: "aaa" });
 
 const get = apiClient.get;
 apiClient.get = async (url, params, axiosConfig) => {
