@@ -1,5 +1,5 @@
 // NOTE: this setings is ONLY valid for Wufoo Forms!!!
-const uriFormsBase = "http://{{subdomain}}.wufoo.com/api/v3/forms";
+const uriFormsBase = "https://{{subdomain}}.wufoo.com/api/v3/forms";
 const uriFormsOther = "{{formid}}{{endPoint}}.{{format}}";
 
 const settings = [
@@ -44,8 +44,14 @@ const getAuth = (id) => {
   };
 };
 
+const getAuthEncoded = (id) => {
+  const { accessId } = getSetting(id);
+  return btoa(`${accessId}:anyPass`);
+};
+
 export default {
   getSetting,
   getUri,
   getAuth,
+  getAuthEncoded,
 };
