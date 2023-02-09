@@ -31,8 +31,8 @@ export default function FormsList({ navigation, route }) {
 
   const handlePress = (item) => {
     console.log("handlePresss", item);
-    console.log(navigation);
-    navigation.navigate(routes.FORM_ENTRIES, {
+    navigation.navigate(routes.FORM_DETAIL, {
+      sourceId: route.params.source,
       formId: item.hash,
     });
   };

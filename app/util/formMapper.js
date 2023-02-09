@@ -1,10 +1,3 @@
-const mforms = {
-  name: "Name",
-  description: "Description",
-  isPublic: "IsPublic",
-  hash: "Hash",
-};
-
 const test = [
   {
     Name: "Test 01",
@@ -51,6 +44,13 @@ const test = [
     Array: null,
   },
 ];
+
+const mforms = {
+  name: "Name",
+  description: "Description",
+  isPublic: "IsPublic",
+  hash: "Hash",
+};
 
 const mapForms = (list) => {
   const newList = [];
