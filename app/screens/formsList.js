@@ -48,7 +48,7 @@ export default function FormsList({ route }) {
             <ListItem
               id={item.hash}
               name={item.name}
-              description={item.description}
+              // description={item.description}
               onPress={() => handlePress(item)}
             />
           )}
