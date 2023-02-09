@@ -1,4 +1,3 @@
-//import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, FlatList, StyleSheet, View } from "react-native";
 
@@ -7,10 +6,10 @@ import Screen from "../components/Screen";
 import colors from "../config/colors";
 import formApi from "../httpApi/formService";
 import mapper from "../util/formMapper";
+import routes from "../navigation/routes";
 
-export default function FormsList({ route }) {
+export default function FormsList({ navigation, route }) {
   const [forms, setForms] = useState([]);
-  //const [list, setList] = useState(FAKEFORMS);
 
   const loadForms = () => {
     formApi.getForms(route.params.source).then(
@@ -32,12 +31,16 @@ export default function FormsList({ route }) {
 
   const handlePress = (item) => {
     console.log("handlePresss", item);
+    console.log(navigation);
+    navigation.navigate(routes.FORM_ENTRIES, {
+      formId: item.hash,
+    });
   };
 
   const handleButtonPress = () => {
     console.log("handleButtonPresss");
   };
-
+  console.log(forms);
   return (
     <Screen>
       <View style={styles.screen}>
@@ -48,7 +51,6 @@ export default function FormsList({ route }) {
             <ListItem
               id={item.hash}
               name={item.name}
-              // description={item.description}
               onPress={() => handlePress(item)}
             />
           )}

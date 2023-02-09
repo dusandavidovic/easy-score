@@ -6,8 +6,8 @@ import Screen from "../components/Screen";
 import routes from "../navigation/routes";
 
 const ITEMS = [
-  { label: "David", value: "david" },
   { label: "James", value: "james" },
+  { label: "David", value: "david" },
 ];
 
 export default function WelcomeScreen({ navigation }) {
