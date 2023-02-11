@@ -14,11 +14,7 @@ function FormDetail({ navigation, route }) {
   const loadFormFields = async () => {
     try {
       const response = await formApi.getFormFields(sourceId, formId);
-      if (response.data) {
-        setFields(response.data.Fields);
-      } else {
-        console.log("Failed to execute loadFormFields");
-      }
+      if (response.data) setFields(response.data.Fields);
     } catch (error) {
       console.log("loadFormFields", error);
     }
@@ -35,8 +31,8 @@ function FormDetail({ navigation, route }) {
 
   const handleButtonPress = () => {
     navigation.navigate(routes.FORM_ENTRIES, {
-      sourceId: route.params.sourceId,
-      formId: route.params.formId,
+      sourceId: sourceId,
+      formId: formId,
       fields: fields,
     });
   };

@@ -67,8 +67,6 @@ const mapForms = (list) => {
   return newList;
 };
 
-//console.log(mapForms(test));
-
 export default {
   mapForms,
 };
