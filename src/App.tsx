@@ -19,7 +19,7 @@ function App() {
       // gap="1"
       // color="blackAlpha.700"
     >
-      <GridItem pl="2" bg="gray.200" area={"header"}>
+      <GridItem pl="2" area={"header"}>
         <Header />
       </GridItem>
       <GridItem pl="2" area={"nav"}>
