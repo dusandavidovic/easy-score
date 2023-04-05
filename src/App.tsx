@@ -3,9 +3,11 @@ import "./App.css";
 import { Grid, GridItem } from "@chakra-ui/react";
 import Header from "./components/Header";
 import FormsList from "./components/FormsList";
+import { Form } from "./hooks/useForms";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [selectedForm, setSelectedForm] = useState<Form | null>(null);
 
   return (
     <Grid
@@ -23,7 +25,10 @@ function App() {
         <Header />
       </GridItem>
       <GridItem pl="2" area={"nav"}>
-        <FormsList />
+        <FormsList
+          selectedForm={selectedForm}
+          onSelectForm={(form) => setSelectedForm(form)}
+        />
       </GridItem>
       <GridItem pl="2" bg="green.300" area={"main"}>
         Main

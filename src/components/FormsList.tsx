@@ -12,7 +12,12 @@ import inactive from "../assets/hibernation.png";
 import thumbsUp from "../assets/thumbs-up.webp";
 import useForms, { Form } from "../hooks/useForms";
 
-const FormsList = () => {
+interface Props {
+  onSelectForm: (form: Form) => void;
+  selectedForm: Form | null;
+}
+
+const FormsList = ({ onSelectForm, selectedForm }: Props) => {
   const { forms, error, isLoading } = useForms();
 
   const isInactive = (form: Form): boolean => {
@@ -40,8 +45,10 @@ const FormsList = () => {
               <Button
                 whiteSpace="normal"
                 textAlign="left"
-                // fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
-                onClick={() => console.log(form.Name, form.EndDate)}
+                fontWeight={
+                  form.Name === selectedForm?.Name ? "bold" : "normal"
+                }
+                onClick={() => onSelectForm(form)}
                 fontSize="lg"
                 variant="link"
               >
