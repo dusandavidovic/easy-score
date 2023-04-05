@@ -10,17 +10,8 @@ import {
 
 import inactive from "../assets/hibernation.png";
 import thumbsUp from "../assets/thumbs-up.webp";
-import useForms from "../hooks/useForms";
+import useForms, { Form } from "../hooks/useForms";
 
-interface Form {
-  Name: string;
-  Description: string;
-  hash: string;
-  isPublic: string;
-  Url: string;
-  StartDate: Date;
-  EndDate: Date;
-}
 const FormsList = () => {
   const { forms, error, isLoading } = useForms();
 
@@ -33,19 +24,19 @@ const FormsList = () => {
 
   return (
     <>
-      <Heading marginBottom={3} fontSize="2xl">
+      <Heading justifyContent={"left"} marginBottom={3} fontSize="2xl">
         Forms
       </Heading>
 
       <List>
         {forms.map((form) => (
-          <ListItem key={form.hash}>
+          <ListItem key={form.Name}>
             <HStack>
               <Image
                 boxSize="28px"
                 borderRadius={8}
                 src={isInactive(form) ? thumbsUp : inactive}
-              ></Image>
+              />
               <Button
                 whiteSpace="normal"
                 textAlign="left"

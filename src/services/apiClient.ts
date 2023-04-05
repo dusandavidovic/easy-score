@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { CanceledError } from "axios";
 
 // const config = {
 //   baseULR: "",
@@ -12,3 +12,4 @@ import axios from "axios";
 //   },
 // });
 export default axios.create();
+export { CanceledError };
