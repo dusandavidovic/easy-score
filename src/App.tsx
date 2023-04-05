@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { Grid, GridItem } from "@chakra-ui/react";
 import Header from "./components/Header";
+import FormsList from "./components/FormsList";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -22,7 +23,7 @@ function App() {
         <Header />
       </GridItem>
       <GridItem pl="2" bg="gray.200" area={"nav"}>
-        Nav
+        <FormsList />
       </GridItem>
       <GridItem pl="2" bg="green.300" area={"main"}>
         Main
