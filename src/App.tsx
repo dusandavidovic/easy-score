@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { Grid, GridItem } from "@chakra-ui/react";
+import Header from "./components/Header";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,7 +19,7 @@ function App() {
       color="blackAlpha.700"
     >
       <GridItem pl="2" bg="orange.300" area={"header"}>
-        Header
+        <Header />
       </GridItem>
       <GridItem pl="2" bg="pink.300" area={"nav"}>
         Nav
