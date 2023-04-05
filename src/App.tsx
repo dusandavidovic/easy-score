@@ -13,16 +13,16 @@ function App() {
         base: `"header" "main"`,
         lg: `"header header" "nav main" "nav footer"`,
       }}
-      gridTemplateRows={"50px 1fr 30px"}
+      // gridTemplateRows={"50px 1fr 30px"}
       gridTemplateColumns={"350px 1fr"}
-      h="200px"
-      gap="1"
-      color="blackAlpha.700"
+      // h="200px"
+      // gap="1"
+      // color="blackAlpha.700"
     >
       <GridItem pl="2" bg="gray.200" area={"header"}>
         <Header />
       </GridItem>
-      <GridItem pl="2" bg="gray.200" area={"nav"}>
+      <GridItem pl="2" area={"nav"}>
         <FormsList />
       </GridItem>
       <GridItem pl="2" bg="green.300" area={"main"}>

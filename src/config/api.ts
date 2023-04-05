@@ -2,6 +2,8 @@
 const uriFormsBase = "https://{{subdomain}}.wufoo.com/api/v3/forms";
 const uriFormsOther = "{{formid}}{{endPoint}}.{{format}}";
 
+export const API_ID = "admin";
+
 const settings = [
   {
     id: "admin",
