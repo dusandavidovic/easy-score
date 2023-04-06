@@ -8,7 +8,8 @@ import {
   Button,
 } from "@chakra-ui/react";
 
-import inactive from "../assets/hibernation.png";
+//import inactive from "../assets/hibernation.png";
+import cancel from "../assets/cancel.png";
 import thumbsUp from "../assets/thumbs-up.webp";
 import useForms, { Form } from "../hooks/useForms";
 
@@ -29,7 +30,7 @@ const FormsList = ({ onSelectForm, selectedForm }: Props) => {
 
   return (
     <>
-      <Heading justifyContent={"left"} marginBottom={3} fontSize="2xl">
+      <Heading marginBottom={3} fontSize="2xl">
         Forms
       </Heading>
 
@@ -40,7 +41,7 @@ const FormsList = ({ onSelectForm, selectedForm }: Props) => {
               <Image
                 boxSize="28px"
                 borderRadius={8}
-                src={isInactive(form) ? thumbsUp : inactive}
+                src={isInactive(form) ? thumbsUp : cancel}
               />
               <Button
                 whiteSpace="normal"

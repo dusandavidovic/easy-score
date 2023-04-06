@@ -5,7 +5,7 @@ import api, { API_ID } from "../config/api";
 export interface Form {
   Name: string;
   Description: string;
-  hash: string;
+  Hash: string;
   isPublic: string;
   Url: string;
   StartDate: Date;
