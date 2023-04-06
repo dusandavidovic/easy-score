@@ -34,7 +34,7 @@ function App() {
         />
       </GridItem>
       <GridItem pl="2" bg="gray.700" area={"main"}>
-        {selectedForm && <FormFieldsList selectedForm={selectedForm} />}
+        {/* {selectedForm && <FormFieldsList selectedForm={selectedForm} />} */}
         {/* <FormFieldsList selectedForm={selectedForm ? selectedForm : null} /> */}
         {/* <FormField form={selectedForm ? selectedForm : null} /> */}
         {selectedForm && <FormEntries form={selectedForm} />}

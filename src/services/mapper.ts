@@ -1,6 +1,6 @@
 import { FormFields } from "../hooks/useFormFields";
 
-interface IEntry {
+export interface IEntry {
   name?: string;
   email?: string;
   boatName?: string;
@@ -15,8 +15,8 @@ interface IEntry {
 const Map: { [key: string]: string } = {
   firstName: "First",
   lastName: "Last",
-  boat: "Boat Name",
-  sailNo: "SailNumber",
+  boatName: "Boat Name",
+  sailNo: "Sail Number",
   email: "Email",
   class: "Make/Model",
   phrfFS: "Flying Sails ASP",
